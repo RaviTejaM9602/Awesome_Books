@@ -20,8 +20,6 @@ const displayBooks = (id, title, author) => {
     books = books.filter((book) => {
       if (book.id !== id) {
         return true;
-      } else {
-        return false;
       }
     });
     localStorage.setItem('books', JSON.stringify(books));
