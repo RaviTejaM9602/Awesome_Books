@@ -12,18 +12,19 @@
   <title>Awesomebooks</title>
 </head>
 <body>
-   <h1><i class="far fa-book-user"></i>Awesome<span>Books</span></h1>
+   <h1><i class="fas fa-book-user"></i>Awesome<span>Books</span></h1>   
+
    <ul id="book-list">
-    <li>
-      <input type="text" name="title" id="title" placeholder="Title" />
-    </li>
-    <li>
-      <input type="text" name="author" id="author" placeholder="Author" />
-    </li>
-    <li>
-      <button id="add-button" type="button">Add</button>
-    </li>
+
    </ul>
-   <script src="books.js"></script>
+   
+   <form action="#">
+     <input type="text" id="title" placeholder="Title"> <br> <br>
+     <input type="text" id="author" placeholder="Author"> <br><br>
+     <small class="err-msg"></small> <br>
+   <button type="submit" id="add-btn">Add</button>
+   </form>
+
+   <script src="./books.js"></script>
 </body>
 </html>
