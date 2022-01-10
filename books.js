@@ -3,8 +3,7 @@ const bookList = document.querySelector('#book-list');
 
 let books = [];
 
-//Displaying Added Element
-
+//Displaying Added Element 
 const displayBooks = (id, title, author) => {
   const li = document.createElement('li');
   const br = document.createElement('br');
@@ -17,18 +16,17 @@ const displayBooks = (id, title, author) => {
   li.insertBefore(removeBookBtn, li.lastElementChild);
   li.appendChild(br);
   bookList.appendChild(li);
-// Removing
-
+// Removing 
 removeBookBtn.addEventListener('click', () => {
-  books = books.filter((book) => {
-    if (book.id !== id) {
-      return true
-    }else {
+  books = books.filter((book) => {  
+    if (book.id !== id) {    
+      return true      
+    } else {        
       return false
     }
   })
-  localStorage.setItem('books', JSON.stringify(books))
-  li.remove()
+  localStorage.setItem('books', JSON.stringify(books));
+  li.remove();
 });
 };
 
@@ -62,29 +60,28 @@ function addBook(title, author){
                 author};
    if (title === '' || author === ''){
      printErrorMsg('Please Fill the Input Fields');
-   }else {
+   } else {
      books.push(bookObj)
-     localStorage.setItem('books',JSON.stringify(books));
-     clearInput();
-   }
+     localStorage.setItem('books',JSON.stringify(books));  
+     clearInput();  
+    }
 }
 
-const getBookFromStorage = JSON.parse(localStorage.getItem('books'))
-if(getBookFromStorage) {
+const getBookFromStorage = JSON.parse(localStorage.getItem('books'));
+ if(getBookFromStorage) {
   books = getBookFromStorage;
 }
 
-books.forEach((book) => {
-displayBooks(book.id, book.title, book.author);
+books.forEach((book) => {  
+  displayBooks(book.id, book.title, book.author);
 });
 
-// Adding 
-
-document.addEventListener('DOMContentLoaded', () => {
-addBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const title = document.getElementById('title').value;
+// Adding
+document.addEventListener('DOMContentLoaded', () => {  
+  addBtn.addEventListener('click', (e) => {    
+  e.preventDefault();    
+  const title = document.getElementById('title').value;    
   const author = document.getElementById('author').value;
   addBook(title, author);
-});
-});
+  });
+    });
