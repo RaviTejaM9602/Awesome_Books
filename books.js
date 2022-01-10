@@ -5,6 +5,8 @@ const bookList = document.querySelector('#book-list');
 
 let books = [];
 
+
+
 function clearInput(){
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
@@ -34,6 +36,15 @@ function addBook(title, author){
      clearInput();
    }
 }
+
+const getBookFromStorage = JSON.parse(localStorage.getItem('books'))
+if(getBookFromStorage) {
+  books = getBookFromStorage;
+}
+
+books.forEach((book) => {
+displayBooks(book.id, book.title, book.author);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
 addBtn.addEventListener('click', (e) => {
