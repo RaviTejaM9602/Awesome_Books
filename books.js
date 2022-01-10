@@ -18,11 +18,7 @@ const displayBooks = (id, title, author) => {
   bookList.appendChild(li);
   removeBookBtn.addEventListener('click', () => {
     books = books.filter((book) => {
-      if (book.id !== id) {
-        return true;
-      } else if (book.id === id) {
-        return false;
-      }   
+      return book.id !== id ? true : false ;
     });
     localStorage.setItem('books', JSON.stringify(books));
     li.remove();
