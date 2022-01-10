@@ -3,7 +3,7 @@ const bookList = document.querySelector('#book-list');
 
 let books = [];
 
-//Displaying Added Element 
+// Displaying Added Element 
 const displayBooks = (id, title, author) => {
   const li = document.createElement('li');
   const br = document.createElement('br');
@@ -38,7 +38,7 @@ function clearInput(){
     document.getElementById('author').value = '';
 }
 
-// Printing the Error Message If the field is Empty
+//  Printing the Error Message If the field is Empty
 
 const printErrorMsg = (message) => {
   document.querySelector('.err-msg').innerHTML = message;
@@ -77,11 +77,11 @@ books.forEach((book) => {
 });
 
 // Adding
-document.addEventListener('DOMContentLoaded', () => {  
-  addBtn.addEventListener('click', (e) => {    
-  e.preventDefault();    
-  const title = document.getElementById('title').value;    
-  const author = document.getElementById('author').value;
-  addBook(title, author);
+document.addEventListener('DOMContentLoaded', () => {
+  addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    addBook(title, author);
   });
-    });
+});
