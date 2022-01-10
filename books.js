@@ -1,16 +1,46 @@
-const bookName = document.querySelector('#title');
-const authName = document.querySelector('#author');
 const addBtn = document.getElementById('add-btn');
 const bookList = document.querySelector('#book-list');
 
 let books = [];
 
+//Displaying Added Element
 
+const displayBooks = (id, title, author) => {
+  const li = document.createElement('li');
+  const br = document.createElement('br');
+  li.innerHTML = `
+  <h2>${title}</h2>
+  <h2>${author}</h2>
+  <hr>`;
+  const removeBookBtn = document.createElement('button');
+  removeBookBtn.textContent = 'Remove';
+  li.insertBefore(removeBookBtn, li.lastElementChild);
+  li.appendChild(br);
+  bookList.appendChild(li);
+// Removing
+
+removeBookBtn.addEventListener('click', () => {
+  books = books.filter((book) => {
+    if (book.id !== id) {
+      return true
+    }else {
+      return false
+    }
+  })
+  localStorage.setItem('books', JSON.stringify(books))
+  li.remove()
+});
+};
+
+
+// Clear the Input Text
 
 function clearInput(){
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
 }
+
+// Printing the Error Message If the field is Empty
 
 const printErrorMsg = (message) => {
   document.querySelector('.err-msg').innerHTML = message;
@@ -18,6 +48,8 @@ const printErrorMsg = (message) => {
     document.querySelector('.err-msg').innerHTML = '';
   }, 1000);
 };
+
+// Adding the Book to the Storage
 
 function addBook(title, author){
   const id = Date.now();
@@ -45,6 +77,8 @@ if(getBookFromStorage) {
 books.forEach((book) => {
 displayBooks(book.id, book.title, book.author);
 });
+
+// Adding 
 
 document.addEventListener('DOMContentLoaded', () => {
 addBtn.addEventListener('click', (e) => {
