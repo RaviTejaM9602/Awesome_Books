@@ -3,7 +3,7 @@ const bookList = document.querySelector('#book-list');
 
 let books = [];
 
-// Displaying Added Element 
+// Displaying Added Element
 const displayBooks = (id, title, author) => {
   const li = document.createElement('li');
   const br = document.createElement('br');
@@ -16,30 +16,26 @@ const displayBooks = (id, title, author) => {
   li.insertBefore(removeBookBtn, li.lastElementChild);
   li.appendChild(br);
   bookList.appendChild(li);
-// Removing 
-removeBookBtn.addEventListener('click', () => {
-  books = books.filter((book) => {  
-    if (book.id !== id) {    
-      return true      
-    } else {        
-      return false
-    }
-  })
-  localStorage.setItem('books', JSON.stringify(books));
-  li.remove();
-});
+  removeBookBtn.addEventListener('click', () => {
+    books = books.filter((book) => {
+      if (book.id !== id) {
+        return true
+      } else {
+        return false
+      }
+    })
+    localStorage.setItem('books', JSON.stringify(books));
+    li.remove();
+  });
 };
 
-
 // Clear the Input Text
-
 function clearInput(){
-    document.getElementById('title').value = '';
-    document.getElementById('author').value = '';
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
 }
 
 //  Printing the Error Message If the field is Empty
-
 const printErrorMsg = (message) => {
   document.querySelector('.err-msg').innerHTML = message;
   setTimeout(() => {
@@ -48,31 +44,27 @@ const printErrorMsg = (message) => {
 };
 
 // Adding the Book to the Storage
-
 function addBook(title, author){
   const id = Date.now();
   this.id = id;
   this.title = title;
   this.author = author;
-  const bookObj = {
-                 id,
-                title,
-                author};
-   if (title === '' || author === ''){
-     printErrorMsg('Please Fill the Input Fields');
-   } else {
-     books.push(bookObj)
-     localStorage.setItem('books',JSON.stringify(books));  
-     clearInput();  
-    }
+  const bookObj = {id,title,author};
+  if (title === '' || author === ''){
+    printErrorMsg('Please Fill the Input Fields');
+  } else {
+    books.push(bookObj)
+    localStorage.setItem('books',JSON.stringify(books));
+    clearInput();
+  }
 }
 
 const getBookFromStorage = JSON.parse(localStorage.getItem('books'));
- if(getBookFromStorage) {
+if(getBookFromStorage) {
   books = getBookFromStorage;
 }
 
-books.forEach((book) => {  
+books.forEach((book) => {
   displayBooks(book.id, book.title, book.author);
 });
 
