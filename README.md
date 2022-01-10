@@ -44,7 +44,7 @@ To get a local copy follow these steps:
 1. Clone the repo by typing on your terminal
 
 ```
-git clone https://github.com/RaviTejaM9602/TechnoCamp_UK_Summit-22
+git clone git@github.com:RaviTejaM9602/Awesome_Books.git
 ```
 
 2. Access the repo with
@@ -76,7 +76,7 @@ Linter Setup
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/RaviTejaM9602/Portfolio)
+- GitHub: [@githubhandle](https://github.com/RaviTejaM9602/Awesome_Books)
 - Twitter: [@twitterhandle](https://twitter.com/RaviTejaMekala1)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ravi-teja-8499a31b9/)
 
@@ -88,7 +88,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## Acknowledgments
 
-- Original design idea by [Cindy Shin in Behance](https://www.behance.net/adagio07).
+- Original design idea by [Microverse](https://github.com/microverseinc/curriculum-javascript/blob/main/books/sneak_peek_v1_1.md).
 
 ## Show your support
 

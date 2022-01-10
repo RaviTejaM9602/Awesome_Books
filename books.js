@@ -19,18 +19,18 @@ const displayBooks = (id, title, author) => {
   removeBookBtn.addEventListener('click', () => {
     books = books.filter((book) => {
       if (book.id !== id) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
-    })
+    });
     localStorage.setItem('books', JSON.stringify(books));
     li.remove();
   });
 };
 
 // Clear the Input Text
-function clearInput(){
+function clearInput() {
   document.getElementById('title').value = '';
   document.getElementById('author').value = '';
 }
@@ -44,23 +44,23 @@ const printErrorMsg = (message) => {
 };
 
 // Adding the Book to the Storage
-function addBook(title, author){
+function addBook(title, author) {
   const id = Date.now();
   this.id = id;
   this.title = title;
   this.author = author;
-  const bookObj = {id,title,author};
-  if (title === '' || author === ''){
+  const bookObj = { id, title, author };
+  if (title === '' || author === '') {
     printErrorMsg('Please Fill the Input Fields');
   } else {
-    books.push(bookObj)
-    localStorage.setItem('books',JSON.stringify(books));
+    books.push(bookObj);
+    localStorage.setItem('books', JSON.stringify(books));
     clearInput();
   }
 }
 
 const getBookFromStorage = JSON.parse(localStorage.getItem('books'));
-if(getBookFromStorage) {
+if (getBookFromStorage) {
   books = getBookFromStorage;
 }
 
