@@ -20,8 +20,9 @@ const displayBooks = (id, title, author) => {
     books = books.filter((book) => {
       if (book.id !== id) {
         return true;
-      }
-      return books;
+      } else if (book.id === id) {
+        return false;
+      }   
     });
     localStorage.setItem('books', JSON.stringify(books));
     li.remove();
@@ -71,8 +72,8 @@ books.forEach((book) => {
 document.addEventListener('DOMContentLoaded', () => {
   addBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
+    const title = document.getElementById('title').value.trim();
+    const author = document.getElementById('author').value.trim();
     addBook(title, author);
   });
 });
