@@ -21,6 +21,7 @@ const displayBooks = (id, title, author) => {
       if (book.id !== id) {
         return true;
       }
+      return books;
     });
     localStorage.setItem('books', JSON.stringify(books));
     li.remove();
