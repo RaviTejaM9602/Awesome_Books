@@ -19,7 +19,7 @@ In the following link, you can view (Coming Soon)).
 
 ## Screenshot
 
-![Book_Store_App](./Images/Book_App.png)
+![Book_Store_App](./Images/Book-App2.png)
 
 
 ## Getting Started

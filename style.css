@@ -81,14 +81,34 @@ button:active {
   height: 70%;
 }
 
+hr {
+  width: 50%;
+  align-items: center;
+  margin-bottom: 5px;
+  border-top: 2px solid black;
+}
+
 #form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 input {
-  border: 1px solid black;
-  border-radius: 3px;
+  border: 2px solid black;
+  border-radius: 2px;
+  width: 80%;
+  height: 80%;
+}
+
+#add-btn {
+  box-shadow: 0.17em 0.17em;
+  border: 2px solid black;
+  padding: 8px;  
+  font-weight: bold;
+  margin-bottom: 2px;
+  margin-top: -10px;
+  height: 70%;
 }
