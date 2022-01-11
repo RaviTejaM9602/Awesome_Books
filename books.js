@@ -5,8 +5,10 @@ let books = [];
 
 // Displaying Added Element
 const displayBooks = (id, title, author) => {
+  bookList.classList.add('with-border');
   const li = document.createElement('li');
   const br = document.createElement('br');
+  // li.parentElement.classList.add('with-border');
   li.innerHTML = `
   <h2> "${title}" by "${author}"</h2>`;
   const removeBookBtn = document.createElement('button');
@@ -16,6 +18,11 @@ const displayBooks = (id, title, author) => {
   bookList.appendChild(li);
   removeBookBtn.addEventListener('click', () => {
     books = books.filter((book) => book.id !== id);
+    if (books.length === 0) {
+       bookList.classList.remove('with-border');
+    } else {
+      bookList.classList.add('with-border');
+    }
     localStorage.setItem('books', JSON.stringify(books));
     li.remove();
   });

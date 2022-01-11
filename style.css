@@ -25,10 +25,6 @@ button:active {
   opacity: 0.5;
 }
 
-.awesome-books {
-  border: 2px solid black;
-}
-
 .book-section {
   display: flex;
   flex-direction: column;
@@ -41,7 +37,7 @@ button:active {
   padding: 0;
 }
 
-.book-section #book-list {
+.with-border {
   border: 2px solid black;
 }
 
@@ -71,6 +67,10 @@ button:active {
   font-weight: 500;
 }
 
+.no-border {
+  border: none;
+}
+
 .book-section #book-list li button {
   box-shadow: 0.17em 0.17em;
   border: 2px solid black;
@@ -92,4 +92,3 @@ input {
   border: 1px solid black;
   border-radius: 3px;
 }
-
