@@ -51,7 +51,6 @@ function addBook(title, author) {
     localStorage.setItem('books', JSON.stringify(books));
   }
 }
-
 const getBookFromStorage = JSON.parse(localStorage.getItem('books'));
 if (getBookFromStorage) {
   books = getBookFromStorage;
@@ -59,14 +58,12 @@ if (getBookFromStorage) {
     displayBooks(book.id, book.title, book.author);
   });
 }
-
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const title = document.getElementById('title').value.trim();
   const author = document.getElementById('author').value.trim();
   addBook(title, author);
-  displayBooks(this.id,this.title,this.author);
+  displayBooks(this.id, this.title, this.author);
   clearInput();
 });
-
 document.addEventListener('DOMContentLoaded', getBookFromStorage);
