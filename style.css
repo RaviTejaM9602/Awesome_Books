@@ -26,7 +26,7 @@ button:active {
 }
 
 .awesome-books {
-  border: 2px solid black;  
+  border: 2px solid black;
 }
 
 .book-section {
@@ -35,6 +35,10 @@ button:active {
   align-content: center;
   justify-content: center;
   margin: 5px;
+}
+
+#book-list {
+  padding: 0;
 }
 
 .book-section #book-list {
@@ -48,8 +52,8 @@ button:active {
   font-weight: 600;
 }
 
-#book-list {
-  padding: 0;
+.book-section ul li:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 .book-section #book-list li {
@@ -61,10 +65,10 @@ button:active {
 }
 
 .book-section #book-list li h2 {
-   justify-content: flex-start;
-   width: 100%;
-   font-size: 14px;
-   font-weight: 500;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .book-section #book-list li button {
@@ -75,10 +79,6 @@ button:active {
   font-weight: bold;
   margin-bottom: 2px;
   height: 70%;
-}
-
-.book-section ul li:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.5);
 }
 
 #form {
