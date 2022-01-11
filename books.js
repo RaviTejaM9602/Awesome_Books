@@ -19,7 +19,7 @@ const displayBooks = (id, title, author) => {
   removeBookBtn.addEventListener('click', () => {
     books = books.filter((book) => book.id !== id);
     if (books.length === 0) {
-       bookList.classList.remove('with-border');
+      bookList.classList.remove('with-border');
     } else {
       bookList.classList.add('with-border');
     }
