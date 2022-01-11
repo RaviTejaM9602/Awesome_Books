@@ -10,16 +10,16 @@ Javascript : Arrays and Objects , DOM , Local Storage etc
 
 ## Video
 
-In the following [link]()
+In the following [link](Coming Soon)
 
 
 ## Live Server
 
-In the following link, you can view ()).
+In the following link, you can view (Coming Soon)).
 
 ## Screenshot
 
-![screenshot_TechnoCamp]()
+![Coming Soon]()
 
 
 ## Getting Started
@@ -97,4 +97,4 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
-Ravi Teja
+Ravi Teja & Emirjeta Veisllari 
