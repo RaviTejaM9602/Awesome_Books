@@ -4,7 +4,7 @@ const bookList = document.querySelector('#book-list');
 let books = [];
 
 // Displaying Added Element
-const displayBooks = (id, title, author) => {   
+const displayBooks = (id, title, author) => {
   const li = document.createElement('li');
   const br = document.createElement('br');
   li.innerHTML = `
