@@ -7,15 +7,78 @@ body {
   margin: 0;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-bottom: 5px;
+ul > li {
+  list-style: none;
 }
 
-h1 {
-  vertical-align: middle;
+button {
+  border: 2px solid black;
+  border-radius: 0;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.5;
+}
+
+.awesome-books {
+  border: 2px solid black;  
+}
+
+.book-section {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.book-section #book-list {
+  border: 2px solid black;
+}
+
+.book-section h1 {
+  font-size: 20px;
+  align-self: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+#book-list {
+  padding: 0;
+}
+
+.book-section #book-list li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  padding: 10px;
+}
+
+.book-section #book-list li h2 {
+   justify-content: flex-start;
+   width: 100%;
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.book-section #book-list li button {
+  box-shadow: 0.17em 0.17em;
+  border: 2px solid black;
+  padding: 8px;
+  align-self: flex-end;
+  font-weight: bold;
+  margin-bottom: 2px;
+  height: 70%;
+}
+
+.book-section ul li:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 #form {
@@ -30,7 +93,3 @@ input {
   border-radius: 3px;
 }
 
-#book-list li {
-  list-style: none;
-  align-content: center;
-}

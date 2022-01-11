@@ -8,12 +8,10 @@ const displayBooks = (id, title, author) => {
   const li = document.createElement('li');
   const br = document.createElement('br');
   li.innerHTML = `
-  <h2>${title}</h2>
-  <h2>${author}</h2>
-  <hr>`;
+  <h2> "${title}" by "${author}"</h2>`;
   const removeBookBtn = document.createElement('button');
   removeBookBtn.textContent = 'Remove';
-  li.insertBefore(removeBookBtn, li.lastElementChild);
+  li.appendChild(removeBookBtn);
   li.appendChild(br);
   bookList.appendChild(li);
   removeBookBtn.addEventListener('click', () => {
