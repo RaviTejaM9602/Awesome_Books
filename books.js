@@ -52,22 +52,19 @@ function addBook(title, author) {
     clearInput();
   }
 }
-
-const getBookFromStorage = JSON.parse(localStorage.getItem('books'));
+const getBookFromStorage = JSON.parse(localStorage.getItem("books"));
 if (getBookFromStorage) {
   books = getBookFromStorage;
-}
-
-books.forEach((book) => {
-  displayBooks(book.id, book.title, book.author);
-});
-
-// Adding
-document.addEventListener('DOMContentLoaded', () => {
-  addBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const title = document.getElementById('title').value.trim();
-    const author = document.getElementById('author').value.trim();
-    addBook(title, author);
+  books.forEach((book) => {
+    displayBooks(book.id, book.title, book.author);
   });
+}
+addBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const title = document.getElementById("title").value.trim();
+  const author = document.getElementById("author").value.trim();
+  addBook(title, author);
+  displayBooks(this.id, this.title, this.author);
+  clearInput();
 });
+document.addEventListener("DOMContentLoaded", getBookFromStorage);
