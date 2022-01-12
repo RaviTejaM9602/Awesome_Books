@@ -1,74 +1,99 @@
-const addBtn = document.getElementById('add-btn');
-const bookList = document.querySelector('#book-list');
+const addBtn = document.querySelector('#add-btn');
+let books = JSON.parse(localStorage.getItem('books'));
 
-let books = [];
-
-// Displaying Added Element
-const displayBooks = (id, title, author) => {
-  bookList.classList.add('with-border');
-  const li = document.createElement('li');
-  const br = document.createElement('br');
-  // li.parentElement.classList.add('with-border');
-  li.innerHTML = `
-  <h2> "${title}" by "${author}"</h2>`;
-  const removeBookBtn = document.createElement('button');
-  removeBookBtn.textContent = 'Remove';
-  li.appendChild(removeBookBtn);
-  li.appendChild(br);
-  bookList.appendChild(li);
-  removeBookBtn.addEventListener('click', () => {
-    books = books.filter((book) => book.id !== id);
-    if (books.length === 0) {
-      bookList.classList.remove('with-border');
-    } else {
-      bookList.classList.add('with-border');
-    }
-    localStorage.setItem('books', JSON.stringify(books));
-    li.remove();
-  });
-};
-
-// Clear the Input Text
-function clearInput() {
-  document.getElementById('title').value = '';
-  document.getElementById('author').value = '';
-}
-
-//  Printing the Error Message If the field is Empty
 const printErrorMsg = (message) => {
-  document.querySelector('.err-msg').innerHTML = message;
+  const errMsg = document.querySelector('.err-msg');
+  errMsg.style.color = 'red';
+  document.querySelector('.err-msg').textContent = message;
   setTimeout(() => {
-    document.querySelector('.err-msg').innerHTML = '';
-  }, 1000);
+    document.querySelector('.err-msg').textContent = '';
+  }, 2000);
 };
 
-// Adding the Book to the Storage
-function addBook(title, author) {
-  const id = Date.now();
-  this.id = id;
-  this.title = title;
-  this.author = author;
-  const bookObj = { id, title, author };
-  if (title === '' || author === '') {
-    printErrorMsg('Please Fill the Input Fields');
-  } else {
-    books.push(bookObj);
+class Book {
+  constructor(id, title, author) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+  }
+
+  addBook() {
+    const { id, title, author } = this;
+    const bookObj = { id, title, author };
+    books = JSON.parse(localStorage.getItem('books'));
+    if (title === '' || author === '') {
+      printErrorMsg('Please fill in all the fields');
+    } else if (books !== null) {
+      books.push(bookObj);
+      localStorage.setItem('books', JSON.stringify(books));
+      books = JSON.parse(localStorage.getItem('books'));
+      document.getElementById('title').value = '';
+      document.getElementById('author').value = '';
+    } else {
+      books = [];
+      books.push(bookObj);
+      localStorage.setItem('books', JSON.stringify(books));
+      books = JSON.parse(localStorage.getItem('books'));
+      document.getElementById('title').value = '';
+      document.getElementById('author').value = '';
+    }
+  }
+
+  removeBook() {
+    const { id } = this;
+    books = books.filter((book) => {
+      if (book.id !== id) {
+        return true;
+      }
+      return false;
+    });
     localStorage.setItem('books', JSON.stringify(books));
   }
 }
-const getBookFromStorage = JSON.parse(localStorage.getItem('books'));
-if (getBookFromStorage) {
-  books = getBookFromStorage;
+
+const displayBook = (id, title, author) => {
+  const bookList = document.querySelector('#book-list');
+  bookList.classList.add('with-border');
+  const li = document.createElement('li');
+  li.innerHTML = `<div class="d-flex-only">
+  <h2><q>${title}</q></h2>
+  <span>by</span>
+  <h2>${author}</h2>
+  </div>`;
+  const removeBookBtn = document.createElement('button');
+  removeBookBtn.textContent = 'Remove';
+  li.appendChild(removeBookBtn);
+  bookList.appendChild(li);
+  removeBookBtn.addEventListener('click', () => {
+    const book = new Book(id, title, author);
+    id = removeBookBtn.id;
+    book.removeBook();
+    if (li.previousElementSibling === null && li.nextElementSibling === null) {
+      bookList.classList.remove('with-border');
+      li.remove();
+    } else {
+      li.remove();
+    }
+  });
+};
+
+if (books !== null) {
   books.forEach((book) => {
-    displayBooks(book.id, book.title, book.author);
+    displayBook(book.id, book.title, book.author);
   });
 }
-addBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const title = document.getElementById('title').value.trim();
-  const author = document.getElementById('author').value.trim();
-  addBook(title, author);
-  displayBooks(this.id, this.title, this.author);
-  clearInput();
+
+document.addEventListener('DOMContentLoaded', () => {
+  addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const toTitleCase = (str) => str.toLowerCase().split(' ').map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`).join(' ');
+    const id = Date.now();
+    const book = new Book(id, toTitleCase(title), toTitleCase(author));
+    book.addBook();
+    if (title && author) {
+      displayBook(book.id, book.title, book.author);
+    }
+  });
 });
-document.addEventListener('DOMContentLoaded', getBookFromStorage);
